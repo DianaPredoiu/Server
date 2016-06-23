@@ -356,7 +356,7 @@ namespace ssock{
 		ifstream fin;
 		string message = "HTTP/1.1 200 Okay\r\nContent-Type: text/html; charset=ISO-8859-4\r\n\r\n";
 
-		fin.open(".\\Entries\\notFoundPage.txt", std::ios::binary);
+		fin.open("..\\Entries\\notFoundPage.txt", std::ios::binary);
 		fin.seekg(0, std::ios::end);
 		size_t count = fin.tellg();
 
@@ -378,7 +378,7 @@ namespace ssock{
 		string message;
 
 		try {
-			fin.open(".\\Entries\\Home.txt", std::ios::binary);
+			fin.open("..\\Entries\\Home.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -416,7 +416,7 @@ namespace ssock{
 		string message;
 		string path;
 		try {
-			fin.open(".\\Entries\\Home.txt", std::ios::binary);
+			fin.open("..\\Entries\\Home.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -496,7 +496,7 @@ namespace ssock{
 		string message;
 
 		try {
-			fin.open(".\\Entries\\form.txt.txt", std::ios::binary);
+			fin.open("..\\Entries\\form.txt.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -581,7 +581,7 @@ namespace ssock{
 		string message;
 
 		try {
-			fin.open(".\\Entries\\restaurante.txt", std::ios::binary);
+			fin.open("..\\Entries\\restaurante.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -657,7 +657,7 @@ namespace ssock{
 		string message;
 
 		try {
-			fin.open(".\\Entries\\reviews.txt", std::ios::binary);
+			fin.open("..\\Entries\\reviews.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
