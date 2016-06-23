@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Restaurant guide</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+    <!-- Logo -->
+
+ <h1 style="font-size:700%; font-family:Edwardian Script ITC;" color = black align = "center"> Best restaurants in the world </h1>
+
+    <!-- Nav bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://localhost:8989">Home</a></li>
+        <li><a href="http://localhost:8989/restaurants">Restaurants</a></li>  
+        <li><a href="http://localhost:8989/form?var=0&var2=0">Form</a></li>
+        <li><a href="http://localhost:8989/reviews">Reviews</a></li>
+		<li><a href="http://localhost:8989/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+	<!-- Gridul -->
+   <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+			<br><br>
+			<div class="row" >
+			   <div class=" col-md-3 portfolio-item" >
+			   </div>
+			   <div class=" col-md-6 portfolio-item" >
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img  src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" 
+						width="600"  height="350"   alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">1. El Celler de Can Roca</h4>
+                        <p class="text-muted text-center">GIRONA, SPAIN</p>	
+						<br><br>
+                    </div>
+                </div>
+				<div class=" col-md-3 portfolio-item" >
+			   </div>
+			</div>
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://qlitravel.s3-eu-west-1.amazonaws.com/wp-content/uploads/2015/06/Osteria-Francescana10714-2400x1500.jpg" 
+						width="360" height="250"  alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">2. Osteria Francescana</h4>
+                        <p class="text-muted text-center">MODENA, ITALY</p>
+						<br><br>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://troelso.files.wordpress.com/2011/05/noma-restauranten-1-of-1.jpg" 
+						width="360" height="250" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">3. Noma</h4>
+                        <p class="text-muted text-center">COPENHAGEN, DENMARK</p>
+						<br><br>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://newworldreview.com/wp-content/uploads/2012/05/central14.jpg" 
+						width="360" height="250"   alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">4. Central</h4>
+                        <p class="text-muted text-center">LIMA, PERU</p>
+						<br><br>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://static5.businessinsider.com/image/55365993ecad04bf1a514ef6-1200/eleven-madison-park.jpg" 
+						width="360" height="250" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">5. Eleven Madison Park</h4>
+                        <p class="text-muted text-center">NEW YORK, USA</p>
+						<br><br>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://www.theworlds50best.com/filestore/jpg/Mugaritz_Exterior_2015.jpg" 
+						width="360" height="250"  alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">6. Mugaritz</h4>
+                        <p class="text-muted text-center">SAN SEBASTIÁN, SPAIN</p>
+						<br><br>
+                    </div>
+                </div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal7" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://photos.mandarinoriental.com/is/image/MandarinOriental/london-restaurant-dinner-by-heston-blumenthal-2?$SignatureRestaurantHero$&crop=425,691,4483,2128&anchor=2666,1755" 
+						width="360" height="250"  alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">7. Dinner by Heston Blumenthal</h4>
+                        <p class="text-muted text-center">LONDON, UK</p>
+						<br><br>
+                    </div>
+                </div>				
+				<div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal8" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://www.agfg.com.au/blog/image.axd?picture=2013%2f2%2f643x-nahm-asia-best-restaurant.jpg" 
+						width="360" height="250"  alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">8. Narisawa</h4>
+                        <p class="text-muted text-center">TOKYO, JAPAN</p>
+						<br><br>
+                    </div>
+                </div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal9" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://www.theworlds50best.com/filestore/jpg/DOM_interior_2015.jpg" 
+						width="360" height="250"  alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">9. D.O.M.</h4>
+                        <p class="text-muted text-center">SÃO PAULO, BRAZIL</p>
+						<br><br>
+                    </div>
+                </div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal10" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://www.wine-now.com/media/blog/Gaggan-BkN143.jpg" 
+						width="360" height="250"  alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4 class = "text-center">10. Gaggan</h4>
+                        <p class="text-muted text-center">BANGKOK, THAILAND</p>
+						<br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+							
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+							</div>
+                            <h2>El Celler de Can Roca</h2>
+                            <p class="item-intro text-muted">GIRONA, SPAIN</p>
+                            <img class="img-responsive img-centered" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" alt="">
+                            <br><br>
+							<h3>Details </h3>
+							<ul class="list-group">								
+                                <li class="list-group-item"><strong>Style of food : </strong>Modern Spanish</li>
+								<li class="list-group-item"><strong>Standout dish : </strong>Mackerel with pickles and mullet roe</li>
+								<li class="list-group-item"><strong>Contact : </strong>Calle Can Sunyer 48, 17007 Girona <br>+34 972 222 157</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; The collective genius of the Roca brothers is well documented. The holy trinity of head chef Joan's thoughtful but original cooking, pastry chef Jordi's 
+							imagination-defying desserts and sommelier Josep's beautifully considered wine pairings already adds up to significantly more than the sum of its parts, 
+							before you add in a vibrant family dynamic and a deep sense of hospitality. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; But the reason this 55-seat contemporary Catalan restaurant is back on top of the world is the trio's equal brilliance in ensuring that they never stop 
+							feeding their own (and their team's) knowledge and imaginations through unusual initiatives.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; In 2013, they premiered El Somni, a theatrical multi-sensory production that explored the interaction between food, music and art. In 2014, the entire 
+							team embarked on an ambitious and unprecedented restaurant tour across the southern US and part of Latin America, temporarily closing the restaurant back home 
+							in the meantime. Less publicly, El Celler is at the forefront of a "gastro-botanical" research project called Terra Animada that is cataloguing rare wild 
+							species with the aim of reintroducing them into our food systems.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; None of the above examples would matter, of course, if they didn't feed back into the evolution and progression of the dining experience at El Celler de 
+							Can Roca. A meal in the tranquil glass-walled dining space is at once comforting and yet gastronomically challenging, the food simultaneously artisanal and 
+							technical, with references to both the traditional and the avant-garde. Crucially, this is a restaurant that has never forgotten its humble roots, its sense 
+							of familial warmth, or the need to serve remarkably delicious dishes and outstanding wines.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://cellercanroca.com/index.htm">El Celler de Can Roca's site</a></p>
+
+                            <br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+							<div class=text-right>
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+							</div>
+                            <h2>Osteria Francescana</h2>
+                            <p class="item-intro text-muted">MODENA, ITALY</p>
+                            <img class="img-responsive img-centered" src="https://qlitravel.s3-eu-west-1.amazonaws.com/wp-content/uploads/2015/06/Osteria-Francescana10714-2400x1500.jpg" alt="">
+                            <br><br>
+							<h3> Details</h3>
+							<ul class="list-group">							
+                            <li class="list-group-item"><strong>Style of food : </strong>Contemporary Italian</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>The crunchy part of the lasagne</li>
+							<li class="list-group-item"><strong>Contact : </strong>Via Stella 22, 41121 Modena <br>+39 059 223912</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; Despite the fact that Massimo Bottura frequently travels the globe, has built an international reputation and has seen his recent book,
+							Never Trust a Skinny Italian Chef, published in several languages, his food remains deeply Italian. In fact, his dishes are a joyful celebration of 
+							Emilia-Romagna – the chef's food-producing home province of northern Italy in which his elegant restaurant resides. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Bottura is renowned for his twists on Italian culinary mores – Five Ages of Parmigiano Reggiano sees the region's famed cheese served
+							in forms and textures most diners will never have experienced, for example – but his menu also includes deliciously executed classics such as tagliatelle 
+							with hand-chopped ragu and risotto cooked with veal jus.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; In parallel, the Sensations tasting menu experiments with local, seasonal ingredients to extraordinary effect. From snacks such as 
+							exquisite rabbit macaroons through eel ravioli to suckling pig with balsamic vinegar, dining at Osteria Francescana is an exploration of the region's produce 
+							and traditions delivered in a supremely contemporary fashion. It's also a reflection of Bottura's inquisitive nature; he is always looking at how to evolve his
+							country's food, inspired by art, music, his family and his travels.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Now 20 years old, the restaurant is located in Modena's quiet back streets and houses a series of striking modern artworks across several 
+							dining spaces. The faultless service and imaginative wine programme is directed with quiet charisma by Beppe Palmieri. But it's in the kitchen, as well as in
+							Bottura's inventive imagination, that the real magic is produced.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://www.osteriafrancescana.it/index.php">Osteria Francescana's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 3 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Noma</h2>
+                            <p class="item-intro text-muted">COPENHAGEN, DENMARK</p>
+                            <img class="img-responsive img-centered" src="https://troelso.files.wordpress.com/2011/05/noma-restauranten-1-of-1.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> Seasonal, terroir-led Scandinavian</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>Sweet shrimps wrapped in ramson leaves</li>
+							<li class="list-group-item"><strong>Contact :</strong> Strandgade 93, DK-1401 Copenhagen K <br>+45 3296 3297</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; It has been something of a whirlwind 12 months for René Redzepi and the team from Noma. As well as reclaiming the number one spot 
+							in the 2014 edition of The World's 50 Best Restaurants list, Redzepi upped sticks and moved Noma to Japan for a hugely over-subscribed five-week pop-up 
+							earlier this year that received wild critical acclaim. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Now back on Danish soil, the Noma team has been re-energised by its experience in the Land of the Rising Sun, where indigenous 
+							ingredients such as raw botan ebi shrimp and wild duck were served to Tokyo diners with dramatic effect.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Now they have turned their attention to Redzepi's beloved Nordic terroir once again. Dishes are in step with the seasons, such as
+							milk curd and the first garlic of 2015; and the first green shoots of spring with a scallop marinade. And it sees Redzepi doing what he does best: playing 
+							with techniques such as fermenting and pickling for creations beyond most people's eating perceptions.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Noma’s ability to remain fresh and to assimilate culinary cultures other than its own demonstrates not just the immense skill 
+							of Redzepi and his team, but also the global importance of Noma. It remains among the most influential restaurants of this century.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://noma.dk/">Noma's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Restaurant 4 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Central</h2>
+                            <p class="item-intro text-muted">LIMA, PERU</p>
+                            <img class="img-responsive img-centered" src="http://newworldreview.com/wp-content/uploads/2012/05/central14.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> Avant-garde Peruvian</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>Octopus in purple coal</li>
+							<li class="list-group-item"><strong>Contact :</strong> Calle Santa Isabel 376, Miraflores, Lima<br>+51 1 242 8515</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; Chef Virgilio Martinez has taken Peruvian cuisine to a whole new extreme elevation. Central, which captured the top spot on Latin 
+							America's 50 Best Restaurants list in 2014, takes diners on a vertical journey across Peru's landscape, serving native ingredients sourced at various 
+							altitudes. The mountains, sea, desert and jungle are all represented as Central's tasting menu travels from 25 metres below to 4,200 metres above sea 
+							level. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; The restaurant celebrates Peru's biodiversity and ancient Andean heritage, pushing culinary limits to delight guests with inventive 
+							creations. Produce from the restaurant's urban garden and the in-house filtration system (promising the purest of water) are a strong presence. But diners
+							must also try ingredients previously unknown to the majority of Peruvians, let alone the rest of the world. These include cushuro, the caviar-like bacteria 
+							found in the mountains after a rainstorm; tunta, a white freeze-dried tuber dating back to Inca times; and airampo, a bright magenta member of the cactus-family
+							grown in the Andes.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Martinez's Mater Iniciativa research project plays a central role in developing the restaurant's identity and ideology. The chef, 
+							who worked across the world before returning home to open Central in 2009, has led the formation of an interdisciplinary team combining gastronomy with 
+							nutrition, history, anthropology, and science. He and his cohorts regularly travel across Peru to discover and study local ingredients, feeding the 
+							extraordinary culinary narrative played out on the plates of the restaurant.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://centralrestaurante.com.pe/">
+								Central's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 5 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Eleven Madison Park</h2>
+                            <p class="item-intro text-muted">NEW YORK, USA</p>
+                            <img class="img-responsive img-centered" src="http://static5.businessinsider.com/image/55365993ecad04bf1a514ef6-1200/eleven-madison-park.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> A New York twist on modern European</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>Honey lavender duck with apple and rutabaga</li>
+							<li class="list-group-item"><strong>Contact :</strong> 11 Madison Avenue, New York 10010<br>+1 212 889 0905</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; If the recipe for an outstanding restaurant is creating the perfect balance between great food and impeccable service,
+							then Eleven Madison Park co-owners Daniel Humm and Will Guidara have hit the jackpot. The pair believe in running the restaurant from both sides 
+							of the wall – the kitchen and the dining room – and the combination of chef Humm's talent with Guidara's front-of-house charisma makes for an 
+							unforgettable experience. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Despite dazzlingly white tablecloths and a grand, high-ceiling dining room, there is not a hint of stuffiness here. Dishes 
+							are playful and often interactive – the "Name That Milk" dessert comes as an ornate wooden box containing four bars of specially commissioned Mast 
+							Brothers chocolate, some pencils and a card with four animal drawings. Diners must taste each bar to determine which belongs to which animal: cow's milk,
+							sheep's, goat's or buffalo's. Humm's tasting menu focuses on New York's rich agricultural bounty, but dishes are frequently adapted and tailored specifically 
+							for guests, who are each painstakingly researched by Guidara's team to create the perfect bespoke experience.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; The duo met a decade ago, brought together by legendary restaurateur Danny Meyer, from whom they bought Eleven Madison Park in 2011. 
+							The deep friendship is clear in the atmosphere at the restaurant – it's Humm and Guidara's party and everyone is invited.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://elevenmadisonpark.com/">
+								Eleven Madison Park's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 6 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Mugaritz</h2>
+                            <p class="item-intro text-muted">SAN SEBASTIÁN, SPAIN</p>
+                            <img class="img-responsive img-centered" src="http://www.theworlds50best.com/filestore/jpg/Mugaritz_Exterior_2015.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> Techno-emotional Spanish</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>Ice shreds, scarlet shrimp perfume</li>
+							<li class="list-group-item"><strong>Contact :</strong> Aldura Aldea, 20, 20100 Errenteria, Gipuzkoa<br>+34 943 522 455</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; At Mugaritz, there is no menu – at least, not in advance of a meal. Diners are instead treated to 24 individually tailored courses 
+							to suit their dietary requirements, wants and desires. The lack of menu is just one example of how Mugaritz dispenses with traditional dining norms in its 
+							quest to deliver a complete sensory and creative experience. Edible cutlery and centrepieces are other routes to delivering the stories, flavours, smells 
+							and textures that make up chef-owner Andoni Luis Aduriz's idea of the perfect journey through food. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Born in the Basque gastronomic heartland of San Sebastián and schooled at El Bulli with the legendary Ferran Adrià, it's no surprise 
+							Aduriz is capable of extraordinary things. He started culinary studies but soon began to explore tastes and textures after a not-so-perfect introduction to
+							the academic world. In 1998, Mugaritz was born and in 2006 it entered this list, helping secure Aduriz's place among the Spanish greats.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Named after a solitary, 200-year-old oak tree that grows in the hills inland from San Sebastián, Mugaritz is as spectacular in its 
+							location as in its food. The small wooden building – entirely rebuilt after a devastating fire in 2010 – is surrounded by breath-taking scenery, further 
+							enhancing the sensory experience delivered by dishes such as edible stones or candy caviar.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://www.mugaritz.com/">
+								Mugaritz's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 7 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Dinner by Heston Blumenthal</h2>
+                            <p class="item-intro text-muted">LONDON, UK</p>
+                            <img class="img-responsive img-centered" src="http://photos.mandarinoriental.com/is/image/MandarinOriental/london-restaurant-dinner-by-heston-blumenthal-2?$SignatureRestaurantHero$&crop=425,691,4483,2128&anchor=2666,1755" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> Historical British food reinvented for the 21st century</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>Meat Fruit – chicken liver parfait dipped in mandarin jelly</li>
+							<li class="list-group-item"><strong>Contact :</strong>Mandarin Oriental Hyde Park, 66 Knightsbridge, London SW1X 7LA<br>+44 20 7201 3833</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; When Dinner by Heston Blumenthal opened less than five years ago, many wondered whether it would offer London the same hyper-experimental
+							cuisine as the chef's famous The Fat Duck in Berkshire. But by celebrating bigger, more boisterous flavours, recreating British culinary history and teleporting
+							age-old recipes into the 21st century, Dinner has carved out its very own niche. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Firm signature dishes such as meat fruit (a ball of chicken liver parfait encased in mandarin jelly) and tipsy cake (brioche soaked 
+							in Sauternes, brandy and vanilla cream served with spit-roast pineapple) have long gained cult status, but Dinner continues to reinvent the past with 
+							ever-evolving creations.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; The eponymous chef is a guiding rather than a physical presence here, with Blumenthal's long-term right-hand-man, Ashley Palmer-Watts,
+							in charge of the kitchen. Under his direction, chefs bring forgotten dishes from as far back as the 1300s back to life, using present-day ingredients and 
+							modernist cooking techniques. For what seems simple on the plate has been cleverly constructed with the precision of molecular gastronomy by chefs working
+							across four kitchens.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Dinner is not about avant-garde wizardry or table theatrics. Instead it offers flavour-led cooking that showcases 600 years of
+							British cuisine and provides diners with a world-class contemporary dining experience. </p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://www.dinnerbyheston.com/">
+								Dinner by Heston Blumenthal's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Restaurant 8 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Narisawa</h2>
+                            <p class="item-intro text-muted">TOKYO, JAPAN</p>
+                            <img class="img-responsive img-centered" src="http://www.agfg.com.au/blog/image.axd?picture=2013%2f2%2f643x-nahm-asia-best-restaurant.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> Japanese with strong French influences</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>"Bread of the Forest 2001"</li>
+							<li class="list-group-item"><strong>Contact :</strong>Minami Ayoyama 2-6-15, Minato-ku, Tokyo, 107-0062<br>+81 3 5785 0799</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; Wonderment is Yoshihiro Narisawa's stock in trade. As the restaurant has eased past the decade mark, the chef's love of the poetry 
+							of the natural world has come ever more to the fore in his menus. Today his dishes share many qualities of the best haiku: restrained and highly thoughtful
+							without being austere or anything less than generous. Narisawa – the restaurant, the man and his food – are all deeply in tune with the landscape and the
+							moment. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Though this is a decidedly international restaurant – more cosmopolitan in its outlook than many of its Tokyo contemporaries,
+							and with a distinct French bedrock to its cooking – unique Japanese products are still the focal point. These include fugu from Aichi prefecture, skewered,
+							grilled and served with sudachi citrus; or irabu sea snake from Okinawa transformed into an elegant broth abob with cubes of taro. The now-famed ritual of 
+							fermenting and baking the bread at the table, meanwhile, takes place amidst an extraordinary nest of twigs and leaves.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; The drinks programme is just as compelling. This might well be the best place in the world to develop a nuanced appreciation
+							of the winemaking of Japan, with pinot noir from Nagano, riesling lion from Iwate, aged Bordeaux-style blends from Yamagata and beyond. This alluring 
+							combination results in the restaurant enjoying a stellar international reputation, reflected in its status as the leader in its continent and one of the
+							very finest restaurants in the world.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://narisawa-yoshihiro.com/">
+								Narisawa's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Restaurant 9 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>D.O.M.</h2>
+                            <p class="item-intro text-muted">SÃO PAULO, BRAZIL</p>
+                            <img class="img-responsive img-centered" src="http://www.theworlds50best.com/filestore/jpg/DOM_interior_2015.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> Contemporary Brazilian with Amazonian ingredients</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>Palm heart fettuccine with mushrooms</li>
+							<li class="list-group-item"><strong>Contact :</strong>Rua Barão de Capanema, 549, Jardins, São Paulo<br>+55 11 3088 0761</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; Something of a rock star in Brazil, Alex Atala has amassed more than 200,000 Instagram followers – as much fans of his food pics as
+							of his tattoos, his dogs and his frequent trips to the Amazon in search of new ingredients. It is on these trips that the DJ-turned-chef gains inspiration
+							and fuel for his main objective: to reshape Brazilian food using the country’s rich natural resources, while respecting the environment and working with
+							local producers and indigenous communities. </p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Atala is visibly passionate when talking about the Amazon and his most recent findings, urging diners at D.O.M. to sample each 
+							ingredient so that he can share his discoveries. His favourites include jambu, a tongue-tingling herb that he also sells in a potent cachaça, and priprioca,
+							a root previously used only in cosmetics and developed into a foodstuff after his team's meticulous research. Such produce forms the centrepiece of a pared
+							back à la carte list as well as four- or eight-course tasting menus.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; D.O.M.'s dining room is formal yet relaxed, intimate yet open. One of the most expensive restaurants in São Paulo, 
+							its prices reflect the cost of transporting ingredients from the most remote parts of Brazil. But just down the road is Dalva e Dito, Atala's second,
+							more informal and lower-priced restaurant with a broader menu.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://domrestaurante.com.br/pt-br/home.html">
+								D.O.M.'s site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 10 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Gaggan</h2>
+                            <p class="item-intro text-muted">BANGKOK, THAILAND</p>
+                            <img class="img-responsive img-centered" src="http://www.theworlds50best.com/filestore/jpg/DOM_interior_2015.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							<ul class="list-group">						
+                            <li class="list-group-item"><strong>Style of food :</strong> Progressive Indian</li>
+							<li class="list-group-item"><strong>Standout dish : </strong>Free-range lamb chops, sous-vide, grilled and finished with green herb oil</li>
+							<li class="list-group-item"><strong>Contact :</strong>68/1 Soi Langsuan, Ploenchit Road, Lumpini, Bangkok 10330<br>+66 2 652 1700</li>
+                            </ul>
+							<br><br>
+                            <p>&nbsp;&nbsp;&nbsp; The street food of his home town of Kolkata and a formative stint at El Bulli are the twin inspirations behind chef Gaggan 
+							Anand's boundary-pushing restaurant in downtown Bangkok. Set up in 2010 and taking top spot in this year’s Asia's 50 Best Restaurants, Gaggan reinvents
+							regional Indian cuisine using modernist cooking methods. The approach is playful, adventurous and thought-provoking with classic street dishes deconstructed
+							and reinterpreted without losing what made them special in the first place. It's a clever balancing act that clearly draws on skills and techniques acquired
+							by the chef during an internship with Ferran Adrià's research team in Spain.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Liquid nitrogen, smoke and dehydrated ingredients add theatre as well as texture and flavour to the chef's creations. Lamb chops
+							are given a molecular makeover with smoked whisky, spherified yoghurt and mango chutney, while the humorously named Green with Envy sees green peppercorn
+							chicken kebabs combined with coriander foam.</p>
+							<br>
+							<p>&nbsp;&nbsp;&nbsp; Housed in a colonial-style building with cane furniture, ceiling fans and white-washed walls, the dining room has an elegant charm.
+							There are several private dining spaces, including one looking directly into the kitchen where guests can witness the gastronomic wizardry for themselves.
+							Polished service and an excellent drinks list, including cutting-edge cocktails, complete the standout experience.</p>
+							<br>
+							<p>
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp; Want to know more about this restaurant ?</strong> You can read more here at <a href="http://eatatgaggan.com/">
+								Gaggan's site</a></p>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body>

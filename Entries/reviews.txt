@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Restaurant guide</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+function test()
+{
+    $.get("test2.txt", function(data) {
+     document.write(data);
+    });
+
+}
+</script>
+  <style>
+
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+}
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  background-color: #eeeeee;
+  left: 50%;
+  margin-left: -1.5px;
+}
+.timeline > li {
+  margin-bottom: 20px;
+  position: relative;
+  width: 50%;
+  float: left;
+  clear: left;
+}
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li > .timeline-panel {
+  width: 95%;
+  float: left;
+  border: 1px solid #d4d4d4;
+  /*border-radius: 2px;*/
+  /*padding: 20px;*/
+  position: relative;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+
+.timeline > li > .timeline-panel:before {
+  position: absolute;
+  top: 26px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  border-right: 0 solid #ccc;
+  border-bottom: 15px solid transparent;
+  content: " ";
+}
+.timeline > li > .timeline-panel:after {
+  position: absolute;
+  top: 27px;
+  right: -14px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 14px solid transparent;
+  content: " ";
+}
+.timeline > li > .timeline-badge {
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  line-height: 50px;
+  font-size: 1.4em;
+  text-align: center;
+  position: absolute;
+  top: 16px;
+  right: -12px;
+  /*background-color: #999999;*/
+  z-index: 100;
+  /*
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  */
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+}
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto;
+}
+.timeline-badge > a {
+  color: #C5C7C5 !important;
+}
+.timeline-badge a:hover {
+  color: #000 !important;
+}
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+}
+.timeline-body > p,
+.timeline-body > ul {
+    padding:20px;
+    margin-bottom: 0;
+}
+.timeline-body > p + p {
+  margin-top: 5px;
+}
+.timeline-footer{
+    padding:20px;
+    background-color:#f4f4f4;
+}
+.timeline-footer > a{
+    cursor: pointer;
+    text-decoration: none;
+}
+.tooltip{
+
+    position:absolute;
+    z-index:1020;
+    display:block;
+    visibility:visible;
+    padding:5px;
+    font-size:11px;
+    opacity:0;
+    filter:alpha(opacity=0);
+    
+}
+.tooltip.in{
+    /*opacity:0;
+    filter:alpha(opacity=80);*/
+    
+}
+.tooltip.top{
+    margin-top:-2px;
+}
+.tooltip.right{
+    margin-left:2px;
+}
+.tooltip.bottom{
+    margin-top:2px;
+}
+.tooltip.left{
+    margin-left:-2px;
+}
+.tooltip.top .tooltip-arrow{
+    bottom:0;
+    left:0;
+    margin-left:0;
+    border-left:0 solid transparent;
+    border-right:5px solid transparent;
+    border-top:0 solid #000;
+}
+.tooltip.left .tooltip-arrow{
+    bottom:0;
+    left:0;
+    margin-left:0;
+    border-left:0 solid transparent;
+    border-right:5px solid transparent;
+    border-top:0 solid #000;
+}
+.tooltip.bottom .tooltip-arrow{
+    bottom:0;
+    left:0;
+    margin-left:0;
+    border-left:0 solid transparent;
+    border-right:5px solid transparent;
+    border-top:0 solid #000;
+}
+.tooltip.right .tooltip-arrow{
+    bottom:0;
+    left:0;
+    margin-left:0;
+    border-left:0 solid transparent;
+    border-right:5px solid transparent;
+    border-top:0 solid #000;
+}
+.tooltip-inner{
+    width:200px;
+    padding:3px 8px;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    background-color:#313131;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+}
+.tooltip-arrow{
+    position:absolute;
+    width:0;
+    height:0;
+}
+.timeline > li.timeline-inverted{
+  float: right; 
+  clear: right;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.timeline > li:nth-child(2){
+  margin-top: 60px;
+}
+.timeline > li.timeline-inverted > .timeline-badge{
+  left: -12px;
+}
+
+@media (max-width: 767px) {
+    ul.timeline:before {
+        left: 40px;
+    }
+
+    ul.timeline > li {
+      margin-bottom: 20px;
+      position: relative;
+      width:100%;
+      float: left;
+      clear: left;
+    }
+    ul.timeline > li > .timeline-panel {
+        width: calc(100% - 90px);
+        width: -moz-calc(100% - 90px);
+        width: -webkit-calc(100% - 90px);
+    }
+
+    ul.timeline > li > .timeline-badge {
+        left: 28px;
+        margin-left: 0;
+        top: 16px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+
+        ul.timeline > li > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        ul.timeline > li > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+    
+.timeline > li.timeline-inverted{
+  float: left; 
+  clear: left;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.timeline > li.timeline-inverted > .timeline-badge{
+  left: 28px;
+}
+}
+
+  </style>
+</head>
+
+
+<body>
+
+    <!-- Logo -->
+
+ <h1 style="font-size:700%; font-family:Edwardian Script ITC;" color = black align = "center">Best restaurants in the world </h1>
+
+    <!-- Nav bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://localhost:8989">Home</a></li>
+        <li><a href="http://localhost:8989/restaurants">Restaurants</a></li>  
+        <li><a href="http://localhost:8989/form?var=0&var2=0">Form</a></li>
+        <li><a href="http://localhost:8989/reviews">Reviews</a></li>
+		<li><a href="http://localhost:8989/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <div class="container">
+    <div class="page-header text-center">
+        <h1 id="timeline">Give your opinion about these restaurants</h1>
+    </div>
+	<br><br><br>
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant1" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="../img/el-celler-de-can-roca.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>     
+				
+				
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+        
+        <li  class="timeline-inverted">
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record invert" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a>
+		  </div>
+          <div class="timeline-panel">
+		  
+            <div class="timeline-heading">
+			<a href="#restaurant2" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p>first review rest2</p>            
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+            
+          </div>
+        </li>
+		
+		<li>
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant3" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>   
+<br><br><br>			  
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+		
+		<li class="timeline-inverted">
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant4" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>              
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+		
+		<li>
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant5" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>              
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+		
+		<li class="timeline-inverted">
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant6" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>              
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+		
+		<li>
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant7" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>              
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+		
+		<li class="timeline-inverted">
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant8" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>              
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+		
+		<li>
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant9" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>              
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+		
+		<li class="timeline-inverted">
+          <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>		 
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+			<a href="#restaurant10" class="portfolio-link" data-toggle="modal">
+              <img class="img-responsive" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" />    
+			</a>
+            </div>
+			
+            <div class="timeline-body">
+              <p> first review rest1</p>              
+            </div>
+			
+			<div class="timeline-footer">
+                <a class="pull-right portfolio-link" data-toggle="modal" href="#restaurant1">See reviews</a>				
+            </div>
+			            
+          </div>
+		  
+        </li>
+
+        
+    </ul>
+</div>
+	<!-- Restaurant 1 -->
+    <div class="portfolio-modal modal fade" id="restaurant1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->							
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+							</div>
+                            <h2>El Celler de Can Roca</h2>
+                            <p class="item-intro text-muted">GIRONA, SPAIN</p>
+                            <img class="img-responsive img-centered" src="http://prod3.image.notey.com/4755823_el-celler-de-can-roca-to-serve-dinner-aboard_tb61c8ffb.jpg" alt="">
+                            <br><br>
+							<h3>Reviews </h3>
+					
+							<br><br>
+							<p> primul review </p>
+							<p>hskabdxkjasx</p>
+							<iframe id='iframe' width="900px" height="400px" src = 'test2.txt' onload='readfile()'> </iframe>
+                            <br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+		<!-- Restaurant 2 -->
+    <div class="portfolio-modal modal fade" id="restaurant2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+							<div class=text-right>
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+							</div>
+                            <h2>Osteria Francescana</h2>
+                            <p class="item-intro text-muted">MODENA, ITALY</p>
+                            <img class="img-responsive img-centered" src="https://qlitravel.s3-eu-west-1.amazonaws.com/wp-content/uploads/2015/06/Osteria-Francescana10714-2400x1500.jpg" alt="">
+                            <br><br>
+							<h3> Details</h3>
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 3 -->
+	<div class="portfolio-modal modal fade" id="restaurant3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Noma</h2>
+                            <p class="item-intro text-muted">COPENHAGEN, DENMARK</p>
+                            <img class="img-responsive img-centered" src="https://troelso.files.wordpress.com/2011/05/noma-restauranten-1-of-1.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Restaurant 4 -->
+	<div class="portfolio-modal modal fade" id="restaurant4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Central</h2>
+                            <p class="item-intro text-muted">LIMA, PERU</p>
+                            <img class="img-responsive img-centered" src="http://newworldreview.com/wp-content/uploads/2012/05/central14.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 5 -->
+	<div class="portfolio-modal modal fade" id="restaurant5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Eleven Madison Park</h2>
+                            <p class="item-intro text-muted">NEW YORK, USA</p>
+                            <img class="img-responsive img-centered" src="http://static5.businessinsider.com/image/55365993ecad04bf1a514ef6-1200/eleven-madison-park.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 6 -->
+	<div class="portfolio-modal modal fade" id="restaurant6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Mugaritz</h2>
+                            <p class="item-intro text-muted">SAN SEBASTIÁN, SPAIN</p>
+                            <img class="img-responsive img-centered" src="http://www.theworlds50best.com/filestore/jpg/Mugaritz_Exterior_2015.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 7 -->
+	<div class="portfolio-modal modal fade" id="restaurant7" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Dinner by Heston Blumenthal</h2>
+                            <p class="item-intro text-muted">LONDON, UK</p>
+                            <img class="img-responsive img-centered" src="http://photos.mandarinoriental.com/is/image/MandarinOriental/london-restaurant-dinner-by-heston-blumenthal-2?$SignatureRestaurantHero$&crop=425,691,4483,2128&anchor=2666,1755" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Restaurant 8 -->
+	<div class="portfolio-modal modal fade" id="restaurant8" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Narisawa</h2>
+                            <p class="item-intro text-muted">TOKYO, JAPAN</p>
+                            <img class="img-responsive img-centered" src="http://www.agfg.com.au/blog/image.axd?picture=2013%2f2%2f643x-nahm-asia-best-restaurant.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Restaurant 9 -->
+	<div class="portfolio-modal modal fade" id="restaurant9" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>D.O.M.</h2>
+                            <p class="item-intro text-muted">SÃO PAULO, BRAZIL</p>
+                            <img class="img-responsive img-centered" src="http://www.theworlds50best.com/filestore/jpg/DOM_interior_2015.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Restaurant 10 -->
+	<div class="portfolio-modal modal fade" id="restaurant10" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+							<button type="button"  class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                            <!-- Project Details Go Here -->
+                            <h2>Gaggan</h2>
+                            <p class="item-intro text-muted">BANGKOK, THAILAND</p>
+                            <img class="img-responsive img-centered" src="http://www.theworlds50best.com/filestore/jpg/DOM_interior_2015.jpg" alt="">
+                            <br><br>
+							<h3> Details </h3>
+							
+							<br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body>
+</html>

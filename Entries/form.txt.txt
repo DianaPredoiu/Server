@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Restaurant guide</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+    <!-- Logo -->
+
+ <h1 style="font-size:700%; font-family:Edwardian Script ITC;" color = black align = "center">Best restaurants in the world </h1>
+
+    <!-- Nav bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://localhost:8989">Home</a></li>
+        <li><a href="http://localhost:8989/restaurants">Restaurants</a></li>  <!-- AICI SA PUN CALEA CATRE PAGINA LA CARE VREAU SA MA DUCA-->
+        <li><a href="http://localhost:8989/form?var=0&var2=0">Form</a></li>
+        <li><a href="http://localhost:8989/about">Reviews</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<form action="css" >
+  First name:<br><br>
+  <input type="text" name="var" value="">
+  <br><br>
+  Last name:<br><br>
+  <input type="text" name="var2" value="">
+  <br><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/test.css".</p>
+
+</body>
+</html>

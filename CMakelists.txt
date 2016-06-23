@@ -1,0 +1,47 @@
+cmake_minimum_required(VERSION 2.7)
+SET(PROJECT_NAME ServerSocket)
+
+PROJECT(${PROJECT_NAME})
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
+
+set(HEADERS
+	include/SocketServer.h
+	include/stringhelper.h
+	include/BaseException.h
+	include/FileNotFoundException.h
+	include/Jinja2CppLight.h
+	include/Response.h
+	include/ServerException.h
+	include/SocketConnection.h
+  )
+  
+set(SOURCES
+	src/Jinja2CppLight.cpp
+	src/Main.cpp
+	src/Response.cpp
+	src/SocketConnection.cpp
+	src/SocketServer.cpp
+	src/stringhelper.cpp
+	)
+include_directories(
+	include
+)
+
+link_directories(
+   ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+
+)
+
+add_executable(
+	${PROJECT_NAME}
+	${HEADERS} ${SOURCES}
+)
+
+target_link_libraries(
+	${PROJECT_NAME}
+	Ws2_32.lib
+	
+)
