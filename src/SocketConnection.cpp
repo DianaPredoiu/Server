@@ -45,22 +45,23 @@ namespace ssock{
 
 	int SocketConnection::validGetAddrInfo()
 	{
-			if (returnValue != 0)
-			{
-				WSACleanup();// sa inchida winsock 2 DLL / libraria 
-				//string msg = "Get address info failed with error : ";
-				////msg =msg + returnValue;
-				////throw new ServerException("get adr info with error");
-				//cout << "GETADDRINFO FAILED with error :  " << returnValue << endl;
-				return 1;
-				//throw ServerException("GETADDRINFO FAILED with error :"+returnValue);
-			}
-			else
-			{
-				cout << "GETADDRINFO with success" << endl;
-			}
-			return 0;
-		
+		if (returnValue != 0)
+		{
+			WSACleanup();// sa inchida winsock 2 DLL / libraria 
+			//string msg = "Get address info failed with error : ";
+			////msg =msg + returnValue;
+			////throw new ServerException("get adr info with error");
+			//cout << "GETADDRINFO FAILED with error :  " << returnValue << endl;
+			return 1;
+			//throw ServerException("GETADDRINFO FAILED with error :"+returnValue);
+		}
+		else
+		{
+			cout << "Used port : "<<DEFAULT_PORT << endl;
+			cout << "GETADDRINFO with success" << endl;
+		}
+		return 0;
+
 	}
 
 	void SocketConnection::setAddrServer()
@@ -83,7 +84,7 @@ namespace ssock{
 			freeaddrinfo(result);//golesc addrinfo de result pt ca e invalid socketul
 			WSACleanup();
 			return 1;
-			
+
 		}
 		else {
 			cout << "VALID socket" << endl;
@@ -133,7 +134,7 @@ namespace ssock{
 			//cout << "LISTEN FAILED with error : " << WSAGetLastError();
 			closesocket(listen_socket);
 			WSACleanup();
-			throw ServerException("Listen failed with error : "+WSAGetLastError());
+			throw ServerException("Listen failed with error : " + WSAGetLastError());
 		}
 		else
 		{
@@ -149,7 +150,7 @@ namespace ssock{
 			closesocket(listen_socket);
 			WSACleanup();
 			return 1;
-			
+
 		}
 		else
 		{
@@ -158,7 +159,7 @@ namespace ssock{
 		return 0;
 	}
 
-	void SocketConnection::sendReceive(SOCKET listen_socket)throw (FileNotFoundException&)
+	void SocketConnection::sendReceive(SOCKET listen_socket)
 	{
 
 		SOCKET clientSocket;//socket temporar care accepta conexiunile de la clienti
@@ -167,9 +168,11 @@ namespace ssock{
 
 		clientSocket = accept(listen_socket, NULL, NULL);
 		client_socket = clientSocket;
+
 		vector<string> handle;
 		if (validClientSocket() == 1)
 			throw ServerException("SERVER EXCEPTION : accept failed with error - " + WSAGetLastError());
+
 		int iResult;//pentru erori
 		do {
 			char receiveBuf[DEFAULT_BUFLEN];
@@ -177,18 +180,19 @@ namespace ssock{
 
 			iResult = recv(clientSocket, receiveBuf, receiveBufLen, 0);// primesc date de la un socket conectat la server
 			//cout << receiveBuf << endl;
-			
-			if (receiveBuf[0] == 'G')// sa intre doar daca exista o cerere
-			{
-				handle = splitGet(receiveBuf);
 
-				if (handle[0] == "GET" && handle.size() > 1 )
-				{ 
-					vector<string> getRequest = splitRequest(handle[1]);//sa schimb sa nu mai folosesc un vector intermediar!!!!
-					for (int i = 1; i < getRequest.size() - 1; i += 2)
-						getParams[getRequest[i]] = getRequest[i + 1];
-					
-					try{
+			try{
+
+				if (receiveBuf[0] == 'G')// sa intre doar daca exista o cerere
+				{
+					handle = splitGet(receiveBuf);
+
+					if (handle[0] == "GET" && handle.size() > 1)
+					{
+						vector<string> getRequest = splitRequest(handle[1]);//sa schimb sa nu mai folosesc un vector intermediar!!!!
+						for (int i = 1; i < getRequest.size() - 1; i += 2)
+							getParams[getRequest[i]] = getRequest[i + 1];
+
 						it = requests.find(getRequest[0]);
 						if (it != requests.end() && response.getHttp() == handle[2])
 						{
@@ -209,36 +213,40 @@ namespace ssock{
 								throw "Server error : can not send to this page ";
 							}
 						}
-					}
-					catch (FileNotFoundException& msg)
-					{
-						int send_res = send(clientSocket, &pageNotFound()[0], strlen(&pageNotFound()[0]), 0);
-						
-					}
-					catch (ServerException& e)
-					{
-						cout << e.getMessage() << endl;
-					}
-				}
-				
-			}
-			else  if (receiveBuf[0] == 'P')
-			{
-				//handle[0] = "POST";
-				//handle[2] = "HTTP/1.1";
-				cout << "POST" << endl;
-				string s = receiveBuf;
-				string p = "; name=";
-				vector<string> n;
-				n = splitPost(p, s);
-				//ofstream fout("out.txt");
-				for (int i = 0; i < n.size()-1; i+2)
-				{
-					//fout << n[i] << ",";
-					postParams[n[i]] = n[i + 1];
-				}
-				
 
+					}
+
+
+				}
+				else  if (receiveBuf[0] == 'P')
+				{
+					//handle[0] = "POST";
+					//handle[2] = "HTTP/1.1";
+					cout << "POST" << endl;
+					string s = receiveBuf;
+					string p = "; name=";
+					vector<string> n;
+					n = splitPost(p, s);
+					//ofstream fout("out.txt");
+					for (int i = 0; i < n.size() - 1; i + 2)
+					{
+						//fout << n[i] << ",";
+						postParams[n[i]] = n[i + 1];
+					}
+				}
+			}
+			catch (FileNotFoundException& msg)
+			{
+				int send_res = send(clientSocket, &pageNotFound()[0], strlen(&pageNotFound()[0]), 0);
+
+			}
+			catch (ServerException& e)
+			{
+				cout << e.getMessage() << endl;
+			}
+			catch (const char* msg)
+			{
+				cout << msg << endl;
 			}
 		} while (iResult > 0);
 
@@ -259,7 +267,7 @@ namespace ssock{
 		{
 			cout << e.getMessage() << endl;
 		}
-		
+
 
 	}
 
@@ -269,11 +277,11 @@ namespace ssock{
 		string aux = "";
 		vector<string> v, v2;
 		std::string::size_type pos = 0, pos2 = 0;
-		while ((pos = obj.find(str, pos)) != std::string::npos) 
+		while ((pos = obj.find(str, pos)) != std::string::npos)
 		{
 			n++;
 			pos2 = obj.find("\n", pos);
-			aux = obj.substr(pos+8, pos2 - pos);
+			aux = obj.substr(pos + 8, pos2 - pos);
 			v2 = splitParamPost(aux);
 			v.push_back(v2[0]);
 			v.push_back(v2[1]);
@@ -300,7 +308,7 @@ namespace ssock{
 		v.push_back(first);
 		v.push_back(last);
 		return v;
-		
+
 	}
 
 	void SocketConnection::threadFunction() throw (FileNotFoundException&)
@@ -345,7 +353,7 @@ namespace ssock{
 				v.push_back(path.substr(prev_pos, pos - prev_pos));
 			prev_pos = pos + 1;
 		}
-		if (prev_pos< path.length())
+		if (prev_pos < path.length())
 			v.push_back(path.substr(prev_pos, std::string::npos));
 
 		return v;
@@ -404,7 +412,7 @@ namespace ssock{
 		/*Jinja2CppLight::Template mytemplate(message);
 		for (std::map<string, string>::iterator it = getParams.begin(); it != getParams.end(); ++it)
 		{
-			mytemplate.setValue(it->first, it->second);
+		mytemplate.setValue(it->first, it->second);
 		}
 		message = mytemplate.render();*/
 		//cout << message << endl;
@@ -532,7 +540,7 @@ namespace ssock{
 			}
 			message = mytemplate.render();
 		}
-		
+
 		return message;
 
 		};
