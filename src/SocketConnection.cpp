@@ -1,4 +1,5 @@
 #include "SocketConnection.h"
+#include <algorithm>
 
 namespace ssock{
 
@@ -57,7 +58,7 @@ namespace ssock{
 		}
 		else
 		{
-			cout << "Used port : "<<DEFAULT_PORT << endl;
+			cout << "Used port : " << DEFAULT_PORT << endl;
 			cout << "GETADDRINFO with success" << endl;
 		}
 		return 0;
@@ -194,15 +195,19 @@ namespace ssock{
 							getParams[getRequest[i]] = getRequest[i + 1];
 
 						it = requests.find(getRequest[0]);
+
 						if (it != requests.end() && response.getHttp() == handle[2])
 						{
 							response.setFile(it->second(getParams));//dau ca si param un map pentru variabile
+
 							response.setIsOkay();
 							int send_res = send(clientSocket, &response.toString()[0], strlen(&response.toString()[0]), 0);
 							if (send_res == -1)
 							{
 								throw "Server error : can not send to this page ";
 							}
+
+
 						}
 						else
 						{
@@ -220,19 +225,39 @@ namespace ssock{
 				}
 				else  if (receiveBuf[0] == 'P')
 				{
-					//handle[0] = "POST";
-					//handle[2] = "HTTP/1.1";
-					cout << "POST" << endl;
-					string s = receiveBuf;
-					string p = "; name=";
-					vector<string> n;
-					n = splitPost(p, s);
-					//ofstream fout("out.txt");
-					for (int i = 0; i < n.size() - 1; i + 2)
+					string str = receiveBuf;
+					string split = "var";
+					vector<string> values;
+					values = splitPost(split, str);
+
+					for (int i = 0; i < values.size() - 1; i += 2)
+						postParams[values[i]] = values[i + 1];
+
+					it = requests.find("/process");
+
+					if (it != requests.end() && response.getHttp() == "HTTP/1.1")
 					{
-						//fout << n[i] << ",";
-						postParams[n[i]] = n[i + 1];
+						response.setFile(it->second(postParams));//dau ca si param un map pentru variabile
+
+						response.setIsOkay();
+						int send_res = send(clientSocket, &response.toString()[0], strlen(&response.toString()[0]), 0);
+						if (send_res == -1)
+						{
+							throw "Server error : can not send to this page ";
+						}
+
+
 					}
+					else
+					{
+						cout << "HANDLE NOT FOUND!" << endl;
+						int send_res = send(clientSocket, &pageNotFound()[0], strlen(&pageNotFound()[0]), 0);
+						if (send_res == -1)
+						{
+							throw "Server error : can not send to this page ";
+						}
+					}
+
 				}
 			}
 			catch (FileNotFoundException& msg)
@@ -273,43 +298,26 @@ namespace ssock{
 
 	vector<string> SocketConnection::splitPost(string & str, string & obj) {
 
-		int n = 0;
-		string aux = "";
-		vector<string> v, v2;
-		std::string::size_type pos = 0, pos2 = 0;
-		while ((pos = obj.find(str, pos)) != std::string::npos)
-		{
-			n++;
-			pos2 = obj.find("\n", pos);
-			aux = obj.substr(pos + 8, pos2 - pos);
-			v2 = splitParamPost(aux);
-			v.push_back(v2[0]);
-			v.push_back(v2[1]);
-			pos += str.size();
-		}
-		return v;
-	}
-
-	vector<string> SocketConnection::splitParamPost(string &aux)
-	{
 		vector<string> v;
-		string split;
-		for (int i = 0; i < aux.size(); i++)
+		size_t pos = obj.find(str);
+		size_t pos2 = obj.find("Ì");
+		string values = obj.substr(pos, pos2 - pos);
+
+
+		pos = 0;
+		while ((pos2 = values.find_first_of("=&", pos)) != std::string::npos)
 		{
-			if (aux[i] != ' ' && aux[i] != '\n' && aux[i] != '\"' && aux[i] != ',' && aux[i] != '-')
-			{
-				split += aux[i];
-			}
+			if (pos2 > pos)
+				v.push_back(values.substr(pos, pos2 - pos));
+			pos = pos2 + 1;
 		}
+		if (pos < values.length())
+			v.push_back(values.substr(pos, std::string::npos));
 
-		int pos = split.find_first_of('\r');
-		std::string last = split.substr(pos + 1),
-			first = split.substr(0, pos);
-		v.push_back(first);
-		v.push_back(last);
 		return v;
-
 	}
+
+
 
 	void SocketConnection::threadFunction() throw (FileNotFoundException&)
 	{
@@ -465,7 +473,7 @@ namespace ssock{
 		string message;
 
 		try {
-			fin.open(".\\Entries\\test.css", std::ios::binary);
+			fin.open("..\\Entries\\test.css", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -551,7 +559,7 @@ namespace ssock{
 		string message;
 
 		try {
-			fin.open(".\\Entries\\about.txt", std::ios::binary);
+			fin.open("..\\Entries\\about.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -621,13 +629,13 @@ namespace ssock{
 		//cout << message << endl;
 		return message; };
 
-		requests["/test"] = [](map<string, string> getParams)->string{cout << "GET -> TEST REQUEST" << endl;
+		requests["/reviews"] = [](map<string, string> getParams)->string{cout << "GET -> REVIEWS REQUEST" << endl;
 		ifstream fin;
 		fin.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 		string message;
 
 		try {
-			fin.open(".\\Entries\\reviews.txt", std::ios::binary);
+			fin.open("..\\Entries\\reviews.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -659,13 +667,15 @@ namespace ssock{
 		//cout << message << endl;
 		return message; };
 
-		requests["/reviews"] = [](map<string, string> getParams)->string{cout << "GET -> REVIEWS REQUEST" << endl;
+		requests["/process"] = [](map<string, string> getParams)->string{cout << "GET -> PROCESS REQUEST" << endl;
 		ifstream fin;
 		fin.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-		string message;
+		string message = "", param, restaurant;
 
 		try {
-			fin.open("..\\Entries\\reviews.txt", std::ios::binary);
+			fstream fin;
+			fin.open("..\\Entries\\reviews.txt", fstream::in | fstream::out | fstream::binary);
+			//fin.open("..\\Entries\\reviews.txt", std::ios::binary);
 			if (fin.is_open())
 			{
 				char* html = nullptr;
@@ -682,6 +692,38 @@ namespace ssock{
 				}
 				fin.close();
 			}
+			std::map<string, string>::iterator it = getParams.begin();
+			param = it->first;
+			const char* write = nullptr;
+			string _where;
+
+			if (param == "varR1_name") _where = "<!-- LAST R1 -->";
+			else if (param == "varR2_name") _where = "<!-- LAST R2 -->";
+			else if (param == "varR3_name") _where = "<!-- LAST R3 -->";
+			else if (param == "varR4_name") _where = "<!-- LAST R4 -->";
+			else if (param == "varR5_name") _where = "<!-- LAST R5 -->";
+			else if (param == "varR6_name") _where = "<!-- LAST R6 -->";
+			else if (param == "varR7_name") _where = "<!-- LAST R7 -->";
+			else if (param == "varR8_name") _where = "<!-- LAST R8 -->";
+			else if (param == "varR9_name") _where = "<!-- LAST R9 -->";
+			else if (param == "varR10_name") _where = "<!-- LAST R10 -->";
+
+			size_t pos = message.find(_where) + 17;
+
+			param = "\n <br>\n<div class=\"comment\"><h4>";
+			param += it->second.c_str();
+			param += "</h4><br>";
+			it++;
+			param += "<p>";
+			param += it->second.c_str();
+			param += "</p></div><br><br>";
+			std::replace(param.begin(), param.end(), '+', ' ');
+			message.insert(pos, param);
+			fin.open("..\\Entries\\reviews.txt", std::fstream::out | std::fstream::trunc);
+			write = &message[0];
+			fin.write(write, strlen(write));
+
+			fin.close();
 
 		}
 		catch (std::ifstream::failure e) {

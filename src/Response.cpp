@@ -18,6 +18,11 @@ namespace ssock{
 		file = _file;
 	}
 
+	string Response::getFile()
+	{
+		return file;
+	}
+
 	string Response::getHttp()
 	{
 		return http;

@@ -37,12 +37,13 @@
         <li><a href="http://localhost:8989/restaurants">Restaurants</a></li>  <!-- AICI SA PUN CALEA CATRE PAGINA LA CARE VREAU SA MA DUCA-->
         <li><a href="http://localhost:8989/form?var=0&var2=0">Form</a></li>
         <li><a href="http://localhost:8989/about">Reviews</a></li>
+		<li><a href="http://localhost:8989/about">About</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<form action="css" >
+<form action="home" >
   First name:<br><br>
   <input type="text" name="var" value="">
   <br><br>

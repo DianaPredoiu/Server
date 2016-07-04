@@ -44,6 +44,9 @@ namespace ssock{
 		map<string, string>::iterator iter;
 
 		Response response;
+
+
+
 		//map<string, double> getValues;//pt var si var2 GET
 		//vector<string> getRequest;//pass it to lambda , 0 for key
 

@@ -20,6 +20,8 @@ namespace ssock{
 
 		string getHttp();
 
+		string getFile();
+
 		string toString();
 
 	};
